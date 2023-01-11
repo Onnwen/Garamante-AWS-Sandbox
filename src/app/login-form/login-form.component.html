@@ -1,0 +1,24 @@
+<form>
+  <h1>Accedi</h1>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input type="email" matInput [formControl]="emailFormControl" placeholder="Es. raffaele@garamante.it" [(ngModel)]="credentials.email">
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      Inserire un indirizzo email valido.
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      L'indirizzo email è <strong>obbligatorio</strong>.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input type="password" matInput [formControl]="passwordFormControllo" placeholder="Password" [(ngModel)]="credentials.password">
+    <mat-error *ngIf="passwordFormControllo.hasError('required')">
+      La password è <strong>obbligatoria</strong>.
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" (click)="onSubmit($event)">Accedi</button>
+</form>
