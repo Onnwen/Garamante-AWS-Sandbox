@@ -5,6 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-  <h1>Questo progetto Java è consultabile <a href="index.php">qui</a>.</h1>
+<h1>Progetto Java</h1>
+<div id="files"></div>
 </body>
+<script>
+    // list files in src dir and show content on click
+    fetch('http://localhost:8080/files')
+        .then(response => response.json())
+        .then(files => {
+            const filesDiv = document.getElementById('files');
+            files.forEach(file => {
+                const fileDiv = document.createElement('div');
+                fileDiv.innerHTML = file;
+                fileDiv.addEventListener('click', () => {
+                    fetch('http://localhost:8080/file/' + file)
+                        .then(response => response.text())
+                        .then(content => {
+                            fileDiv.innerHTML = content;
+                        });
+                });
+                filesDiv.appendChild(fileDiv);
+            });
+        });
+</script>
 </html>
