@@ -38,9 +38,10 @@ if (isset($_COOKIE['cart'])) {
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>E-Commerce</title>
+    <title>Carrello</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 </head>
 <body>
 <h1>Garamante Mall</h1>
@@ -63,8 +64,9 @@ if (isset($_COOKIE['cart'])) {
         <?php foreach ($products as $product): ?>
             <div class="product" id="<?php echo $product['id']; ?>">
                 <h2><?php echo $product['name']; ?></h2>
-                <img src="<?php echo $product['image_url']; ?>" alt="<?php echo $product['name']; ?>">
-                <p class="description"><?php echo $product['description']; ?></p>
+                <div class="imageBackground">
+                    <img src="<?php echo $product['image_url']; ?>" alt="<?php echo $product['name']; ?>">
+                </div>                <p class="description"><?php echo $product['description']; ?></p>
                 <p><?php echo $product['price']; ?> €</p>
                 <button onclick="removeFromCart(<?php echo $product['id']; ?>, <?php echo $product['price'] ?>)">Rimuovi</button>
             </div>
