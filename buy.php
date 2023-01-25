@@ -44,9 +44,10 @@ if (isset($_COOKIE['cart'])) {
     <html lang="it">
     <head>
         <meta charset="UTF-8">
-        <title>E-Commerce</title>
+        <title>Ordine</title>
         <link rel="stylesheet" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     </head>
     <body>
     <h1>Garamante Mall</h1>
@@ -79,6 +80,7 @@ if (isset($_COOKIE['cart'])) {
         <span style="display: inline; font-weight: 500">Prezzo totale:</span>
         <span style="display: inline; float: right">€ <?php echo $totalPrice; ?></span>
     </h3>
+
     <div id="paypal-button-container" style="text-align: center; margin-top: 75px;"></div>
 
     </body>
@@ -124,7 +126,7 @@ if (isset($_COOKIE['cart'])) {
             },
             onApprove: (data, actions) => {
                 return actions.order.capture().then(function (orderData) {
-                    actions.redirect("thanks.php?first_name=" + orderData.payer.name.given_name + "&last_name=" + orderData.payer.name.surname + "&email=" + orderData.payer.email_address + "&order_id=" + orderData.id);
+                    actions.redirect("https://sandbox.garamante.it/works/E-Commerce/thanks.php?first_name=" + orderData.payer.name.given_name + "&last_name=" + orderData.payer.name.surname + "&email=" + orderData.payer.email_address + "&order_id=" + orderData.id);
                 });
             }
         }).render('#paypal-button-container');

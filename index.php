@@ -48,9 +48,10 @@ function isInCart(int $id): bool {
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>E-Commerce</title>
+    <title>Garamante Mall</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 </head>
 <body>
 <h1>Garamante Mall</h1>
