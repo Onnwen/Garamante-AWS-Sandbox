@@ -26,44 +26,132 @@
             opacity: 1;
         }
         #layer1{
+            background-image: url("IMG/immagineBase.png");
+            /* Full height */
+            height: 100%;
+            width: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             z-index: 100;
         }
         #layer2{
+            background-image: url("IMG/LTO-1.png");
+            /* Full height */
+            height: 100%;
+            width: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             z-index: 99;
         }
-        .layerImage{
-            width: 100%;
+        #layer3{
+            background-image: url("IMG/LTO-2.png");
+            /* Full height */
             height: 100%;
+            width: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 98;
+        }
+        #layer4{
+            background-image: url("IMG/LTO-3.png");
+            /* Full height */
+            height: 100%;
+            width: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 97;
+        }
+        #layer5{
+            background-image: url("IMG/LTO-4.png");
+            /* Full height */
+            height: 100%;
+            width: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 96;
+        }
+        #layer6{
+            background-image: url("IMG/LT0-5.png");
+            /* Full height */
+            height: 100%;
+            width: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 95;
+        }
+        #layer7{
+            background-image: url("IMG/LTO-6.png");
+            /* Full height */
+            height: 100%;
+            width: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 94;
         }
     </style>
 </head>
 <body>
-    <div id="layer1" class="layer">
-        <img class="layerImage" src="immagineBase.png">
-    </div>
-    <div id="layer2" class="layer">
-        <img class="layerImage" src="primaFoto.png">
-    </div>
-    <script>
-        $(document).ready(function () {
-            console.log(document.getElementById("layer1").style.opacity);
-        });
-        var totalScroll = 1000;
-        const zoomScreen = document.querySelector("#layer1");
-        let zoom = 1;
-        const zoomingSpeed = 0.1;
-        document.addEventListener("wheel", (e)=> {
-            if (e.deltaY > 0) {
-                totalScroll = totalScroll - e.deltaY*3.3; //225 opacity 0%
+<div id="layer1" class="layer"></div>
+<div id="layer2" class="layer"></div>
+<div id="layer3" class="layer"></div>
+<div id="layer4" class="layer"></div>
+<div id="layer5" class="layer"></div>
+<div id="layer6" class="layer"></div>
+<div id="layer7" class="layer"></div>
+<script>
+    //create a function that limit the speed of mouse wheel
+
+    var layer1 = document.getElementById("layer1");
+    var layer2 = document.getElementById("layer2");
+    var layer3 = document.getElementById("layer3");
+    var layer4 = document.getElementById("layer4");
+    var layer5 = document.getElementById("layer5");
+    var layer6 = document.getElementById("layer6");
+    var layer7 = document.getElementById("layer7");
+
+    var opacityLevels = [0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1];
+
+
+    const zoomScreen = document.querySelector("#layer1");
+    let zoom = 1;
+    const zoomingSpeed = 0.1;
+    var scrolling = 0;
+
+    document.addEventListener("wheel", (e)=> {
+        e.deltaY = e.deltaY-2;
+
+        if (e.deltaY > 0) {
+            scrolling += e.deltaY;
+
+            if(e.deltaY >0){
+                //zoom
                 zoomScreen.style.transform = `scale(${(zoom += zoomingSpeed)})`;
-                if (totalScroll <= 0) {
-                    document.getElementById("layer1").style.opacity = "0";
+
+                //opacity decreasing
+                if (scrolling >= 80) {
+                    zoomScreen.style.opacity = 0;
                 } else{
-                    zoomScreen.style.opacity = `${(totalScroll/1000)}`;
+                    console.log(scrolling/10);
+                    zoomScreen.style.opacity = opacityLevels[Math.round(scrolling/10)];
                 }
             }
-        })
-    </script>
+        }
+    })
+</script>
 
 </body>
 </html>
