@@ -1,13 +1,8 @@
 <?php
-//if (!isset($_COOKIE['order_id'])) {
-//    header('Location: index.php');
-//    exit();
-//}
-
-$_GET['first_name'] = "John";
-$_GET['last_name'] = "Doe";
-$_GET['email'] = "john.doe@icloud.com";
-$_GET['order_id'] = "123456789";
+if (!isset($_COOKIE['order_id'])) {
+    header('Location: index.php');
+    exit();
+}
 
 setcookie('cart', '', time() - 3600);
 setcookie('first_name', $_GET['first_name'], time() + 3600);

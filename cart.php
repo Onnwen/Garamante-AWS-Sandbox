@@ -1,6 +1,6 @@
 <?php
 if (isset($_COOKIE['cart'])) {
-    require_once '../db.php';
+    require_once '../../db.php';
 
     $db_config = $db['db_engine'] . ":host=" . $db['db_host'] . ";dbname=" . $db['db_name'];
 
