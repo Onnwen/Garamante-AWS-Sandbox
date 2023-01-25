@@ -131,35 +131,51 @@
     const zoomingSpeed = 0.1;
     var scrolling = 0;
 
-    $(document).on('touchmove', function() { //touchmove works for iOS, I don't know if Android supports it
-        $(document).trigger('mousewheel');
-    });
+    const src = document.getElementById("source");
+    let clientX;
+    let clientY;
+
+    src.addEventListener('touchstart', (e) => {
+        // Cache the client X/Y coordinates
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+    }, false);
+
+    src.addEventListener('touchend', (e) => {
+        let deltaX;
+        let deltaY;
+
+        // Compute the change in X and Y coordinates.
+        // The first touch point in the changedTouches
+        // list is the touch point that was just removed from the surface.
+        deltaX = e.changedTouches[0].clientX - clientX;
+        deltaY = e.changedTouches[0].clientY - clientY;
+
+        animation(deltaY);
+
+        // Process the data…
+    }, false);
 
     document.addEventListener("wheel", (e)=> {
-        if("ontouchstart" in window){
-            el.addEventListener('touchstart', touchStartHandler);
-            el.addEventListener('touchmove', touchMoveHandler);
-            el.addEventListener('touchend', touchEndHandler);
-        }
-        e.deltaY = e.deltaY-2; //this is the speed of the mouse wheel
+        debugger;
+        animation(e.deltaY);
+    })
 
-        if (e.deltaY > 0) {
-            scrolling += e.deltaY;
+    function animation(scroll) {
+        if (scroll > 2) {
+            scrolling += scroll;
+            //zoom
+            zoomScreen.style.transform = `scale(${(zoom += zoomingSpeed)})`;
 
-            if(e.deltaY >0){
-                //zoom
-                zoomScreen.style.transform = `scale(${(zoom += zoomingSpeed)})`;
-
-                //opacity decreasing
-                if (scrolling >= 80) {
-                    zoomScreen.style.opacity = 0;
-                } else{
-                    console.log(scrolling/10);
-                    zoomScreen.style.opacity = opacityLevels[Math.round(scrolling/10)];
-                }
+            //opacity decreasing
+            if (scrolling >= 80) {
+                zoomScreen.style.opacity = 0;
+            } else{
+                console.log(scrolling/10);
+                zoomScreen.style.opacity = opacityLevels[Math.round(scrolling/10)];
             }
         }
-    })
+    }
 </script>
 
 </body>
