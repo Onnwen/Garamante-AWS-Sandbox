@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    background-image: url("IMG/LTO-3.png");
+    width: 100vw;
+    height: 100vh;
+}
+
+.header-text {
+    padding: 100px;
+}
+
+h1 {
+    font-size: 200px;
+    font-weight: 700;
+    opacity: .7;
+    margin-left: -15px;
+}
+
+p {
+    font-size: 18px;
+    opacity: .7;
+
+    text-align: justify;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+
+}
+
+h5 {
+    font-size: 15px;
+    opacity: .85;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    opacity: .3;
+    /* letters spacing */
+    letter-spacing: 2px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    margin-top: 100px;
+}
+
+.square {
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+    display: block;
+}
