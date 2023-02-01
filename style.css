@@ -21,17 +21,38 @@ h1 {
     margin-left: -15px;
 }
 
+.caption-text {
+    font-size: 25px;
+}
+
+/* On tiny screen */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 100px;
+        font-weight: 500;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .header-text {
+        padding: 10px;
+        padding-top: 60px;
+    }
+
+    .caption-text {
+        font-size: 20px;
+    }
+}
+
 p {
     font-size: 18px;
     opacity: .7;
-
     text-align: justify;
     text-justify: inter-word;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
-
 }
 
 h5 {

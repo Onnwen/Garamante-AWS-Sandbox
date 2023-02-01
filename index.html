@@ -20,13 +20,13 @@
 <header id="header">
     <div class="header-text">
         <h1 class="mt-0 mt-md-4 text-white">LTO</h1>
-        <p class="text-white mt-4" style="font-size: 25px;">È bello, come un sogno che si realizza.</p>
+        <p class="text-white mt-4 caption-text">È bello, come un sogno che si realizza.</p>
         <h5 class="text-white">Andrea Pontremoli, AD Dallara</h5>
     </div>
 </header>
-<div class="container" id="content">
+<div class="container mb-5" id="content">
     <main class="m-1 m-md-3 m-lg-5" id="main">
-        <div class="row gx-5 px-5 row-cols-1 row-cols-lg-3">
+        <div class="row gx-5 px-2 px-md-5 row-cols-1 row-cols-lg-3">
             <section class="col mb-5 mb-lg-0">
                 <h2>Il laboratorio</h2>
                 <p>La parola laboratorio intende un lungo in cui si possa elaborare, creare, provare e testare nuove e vecchio cose, fare esperienze, creare team: tutto questo è LTO. Grazie allo spazio disponibile e all’infrastruttura è possibile lavorare a progetti, PCTO e corsi extra. Ricordo indissolubile degli studenti del Gadda sarà sicuramente la possibilità di testare tecnologie che altri non hanno avuto la possibilità di testare, grazie a un laboratorio moderno e tecnologico.</p>
@@ -45,14 +45,14 @@
             <div id="3d-object"></div>
         </div>
 
-        <div class="row gx-5 px-5 row-cols-1 mt-0">
+        <div class="row gx-5 px-2 px-md-5 row-cols-1 mt-0">
             <section class="col">
                 <h2>Evoluzione</h2>
                 <p>Il laboratorio scolastico LTO nasce nel 2019, con l'obiettivo di fornire ai ragazzi delle scuole superiori un'esperienza di lavoro reale, in un ambiente di lavoro stimolante e dinamico. La struttura LTO del Gadda si offre come esempio per trascinare la società nel percorso della sostenibilità. Con un consumo bilanciato sulla classe energetica A+ e una costruzione totalmente carbon free si mette in cima alla classifica degli edifici innovativi della provincia di Parma.</p>
             </section>
         </div>
 
-        <div class="row gx-2 gy-2 px-5 row-cols-2">
+        <div class="row gx-2 gy-2 px-2 px-md-5 row-cols-1 row-cols-md-2">
             <div class="col">
                 <img src="IMG/LTO-1.webp" alt="image" class="square">
             </div>
@@ -160,12 +160,14 @@
         requestAnimationFrame(animate);
         lto.rotation.y += 0.005;
 
+        /*
         if ($(window).scrollTop() > lastScrollValue) {
             lto.rotation.x -= 0.01;
         } else if ($(window).scrollTop() < lastScrollValue) {
             lto.rotation.x += 0.01;
         }
         lastScrollValue = $(window).scrollTop();
+        */
 
         renderer.render(scene, camera);
     };
